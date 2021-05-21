@@ -187,7 +187,7 @@
                 }
                 $count++;
             }
-            $row = array(array("text" => "<<", "callback_data" => "bible_m"));
+            array_push($row, array("text" => "<<", "callback_data" => "bible_m"));
             array_push($chapters, $row);
             $value = array('inline_keyboard' => $chapters);
             return $value;
