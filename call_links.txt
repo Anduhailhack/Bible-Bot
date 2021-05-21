@@ -1,0 +1,14 @@
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/setWebhook?url=https://5fa83bb3cf54.ngrok.io/home_addr/bible_bot/
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/deleteWebhook
+
+SELECT USER_ID FROM USER_TABLE WHERE USER_ID=686804748
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/setWebhook?url=https://24a8c1ba711a.ngrok.io/home_addr/bible_bot/
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/sendMessage?chat_id=686804748&text=Hi&reply_markup={"inline_keyboard":[[{"text":"Home","callback_data":"H"}]]}
+
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/editMessageReplyMarkup?inline_massage_id=2949803932289669909&reply_markup={"inline_keyboard":[[{"text":"Home","callback_data":"H"}]]}
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/editMessageText?chat_id=686804748&message_id=579&text=Jigsaw&reply_markup={%22inline_keyboard%22:[[{%22text%22:%22Home%22,%22callback_data%22:%22H%22}]]}
