@@ -1,9 +1,9 @@
 <?php
 	namespace Route;
 
-	include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/app/callback_query.php";
-	// include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/app/inline_query.php";
-	include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/app/message.php";
+	include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/Bible-Bot/app/callback_query.php";
+	// include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/Bible-Bot/app/inline_query.php";
+	include_once $_SERVER["DOCUMENT_ROOT"].	"/home_addr/bible_bot/Bible-Bot/app/message.php";
 
 	use App\Message;
 	use App\CallbackQuery;

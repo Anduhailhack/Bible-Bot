@@ -12,3 +12,6 @@ https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/sendM
 https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/editMessageReplyMarkup?inline_massage_id=2949803932289669909&reply_markup={"inline_keyboard":[[{"text":"Home","callback_data":"H"}]]}
 
 https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/editMessageText?chat_id=686804748&message_id=579&text=Jigsaw&reply_markup={%22inline_keyboard%22:[[{%22text%22:%22Home%22,%22callback_data%22:%22H%22}]]}
+
+
+https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/sendMessage?chat_id=686804748&text=Hi

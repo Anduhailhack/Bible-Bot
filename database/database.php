@@ -1,7 +1,7 @@
 <?php
     namespace Database;
 
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/config.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/config.php";
 
     use Utils;
 
@@ -45,7 +45,7 @@
             $data = $this->mysqli->real_escape_string($userData->date);
             $message_data = $this->mysqli->real_escape_string($userData->message_data);
 
-            $fetched = $this->mysqli->query("SELECT USER_ID FROM USER_TABLE WHERE USER_ID=13"); //. $user_id);
+            $fetched = $this->mysqli->query("SELECT USER_ID FROM USER_TABLE WHERE USER_ID=" . $user_id);
             if (mysqli_errno($this->mysqli) == 0)
             {
                 if (is_object($fetched))
@@ -62,6 +62,34 @@
             return 0;
         }
 
+        function cacheCallBack()
+        {
+            if (!isset($this->mysqli))
+                return -1;
+
+            $prepare_query = $this->mysqli->prepare("INSERT INTO cache (USER_ID, BOOK, CHAPTER, VERSE) VALUES (?, ?, ?, ?)");
+            $prepare_query->bind_param("ssss", $user_id, $book, $chapter, $verse);
+
+            if (mysqli_errno($this->mysqli) == 0)
+            {
+                return 0;
+            }
+
+            $prepare_query->execute();
+            $prepare_query->close();
+
+            if (mysqli_errno($this->mysqli) != 0)
+                return mysqli_error($this->mysqli);
+            return 0;
+        }
+
+        function fetchCache()
+        {
+            if (!isset($this->mysqli))
+                return -1;
+
+            $fetched = $this->mysqli->query("SELECT * FROM cache WHERE USER_ID=");
+        }
         function __distruct()
         {
             $this->mysqli->close();

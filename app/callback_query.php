@@ -1,9 +1,9 @@
 <?php
 	namespace App;
 
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/config.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/payloads.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/response.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/config.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/payloads.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/response.php";
 
 	use Utils\Payloads;
 	use Utils\Response;
@@ -87,43 +87,27 @@
 
 						$response->editMessage($parameter);
 					}
+					else if (is_array($callBack) && $callBack["type"] == "verse")
+					{
+						// $parameter = [
+						// 	"chat_id" => $chat_id,
+						// 	"message_id" => $message_id,
+						// 	"text" => "Test subject",
+						// 	"reply_markup" => json_encode(Payloads::verse($callBack["param"]))
+						// ];
+						//
+						// $response->editMessage($parameter);
+					}
 					break;
 			}
 		}
 
 		function identifyCallback($chat_id, $callback_data)
 		{
-			// $fd = fopen($cache_path, "r");
-			// $cache = fread($fd, filesize($fd));
-			// $cache = unserialize($cache);
-			//
-			// if (isset($cache["search_key"]))
-			// {
-			// 	//
-			// }
-
-			if (strpos($callback_data, "bo") != -1)
+			if (str_contains($callback_data, "bo"))
 			{
 				$index = (int) (str_replace($callback_data, "bo", ""));
-				$cache = [
-					"book" => BOOKS[$index][0],
-					"chapter" => null,
-					"verse" => null,
-					"search_key" => null
-				];
-
-				$cache = serialize($cache);
-				$fd = fopen("./data/".$chat_id.".txt", "w");
-				fwrite($fd, $cache);
-				fclose($fd);
-
-				$length = (int)(BOOKS[$index][1]);
-
-				return array("type"=>"chapter", "param" => $length);
-			}
-			else if (strpos($callback_data, "ch") != -1)
-			{
-				$index = (int) (str_replace($callback_data, "ch", ""));
+				// hERE IS WHERE IT STOPPED 
 				// $cache = [
 				// 	"book" => BOOKS[$index][0],
 				// 	"chapter" => null,
@@ -131,18 +115,16 @@
 				// 	"search_key" => null
 				// ];
 
-				$fd = fopen("./data/".$chat_id.".txt", "r");
-				$cache = fread($fd, filesize($fd));
-				$cache = unserialize($cache);
+				$length = (int)(BOOKS[$index][1]);
 
-				$cache["chapter"] = $index;
+				return array("type"=>"chapter", "param" => $length);
+			}
+			else if (str_contains($callback_data, "ch"))
+			{
+				$index = (int) (str_replace($callback_data, "ch", ""));
 
-				$cache = serialize($cache);
-				$fd = fopen("./data/".$chat_id.".txt", "w");
-				fwrite($fd, $cache);
-				fclose($fd);
 
-				return array("type"=>"verse", "param" => "api call require");
+				return array("type"=>"verse", "param" => $index);
 			}
 
 			return null;

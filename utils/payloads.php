@@ -163,8 +163,6 @@
 
         public static function chapter($limit)
         {
-            file_get_contents(API_URL . API_TOKEN . "/sendMessage?chat_id=686804748&text=".$limit);
-
             $chapters = array();
             $row = array();
             $cell = null;
@@ -187,10 +185,17 @@
                 }
                 $count++;
             }
+            array_push($chapters, $row);
+            $row = array();
             array_push($row, array("text" => "<<", "callback_data" => "bible_m"));
             array_push($chapters, $row);
             $value = array('inline_keyboard' => $chapters);
             return $value;
+        }
+
+        public static function verse($chapter_limit)
+        {
+            
         }
     }
 ?>

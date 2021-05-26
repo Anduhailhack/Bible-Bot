@@ -1,12 +1,12 @@
 <?php
 	namespace App;
 
-	// include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/cache.php";
-	// include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/response_struct.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/user_data.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/database/database.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/response.php";
-	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/utils/payloads.php";
+	// include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/cache.php";
+	// include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/response_struct.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/user_data.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/database/database.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/response.php";
+	include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/payloads.php";
 
     use Utils\Response;
 	use Utils\UserData;
