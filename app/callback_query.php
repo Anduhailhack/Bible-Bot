@@ -82,21 +82,21 @@
 							"chat_id" => $chat_id,
 							"message_id" => $message_id,
 							"text" => "Test subject",
-							"reply_markup" => json_encode(Payloads::chapter($callBack["param"]))
+							"reply_markup" => json_encode(Payloads::chapter($callBack["parame"]["book"], $callBack["param"]["limit"]))
 						];
 
 						$response->editMessage($parameter);
 					}
 					else if (is_array($callBack) && $callBack["type"] == "verse")
 					{
-						// $parameter = [
-						// 	"chat_id" => $chat_id,
-						// 	"message_id" => $message_id,
-						// 	"text" => "Test subject",
-						// 	"reply_markup" => json_encode(Payloads::verse($callBack["param"]))
-						// ];
-						//
-						// $response->editMessage($parameter);
+						$parameter = [
+							"chat_id" => $chat_id,
+							"message_id" => $message_id,
+							"text" => "Test subject",
+							"reply_markup" => json_encode(Payloads::verse($callBack["param"]))
+						];
+						
+						$response->editMessage($parameter);
 					}
 					break;
 			}
@@ -107,24 +107,15 @@
 			if (str_contains($callback_data, "bo"))
 			{
 				$index = (int) (str_replace($callback_data, "bo", ""));
-				// hERE IS WHERE IT STOPPED 
-				// $cache = [
-				// 	"book" => BOOKS[$index][0],
-				// 	"chapter" => null,
-				// 	"verse" => null,
-				// 	"search_key" => null
-				// ];
-
 				$length = (int)(BOOKS[$index][1]);
 
-				return array("type"=>"chapter", "param" => $length);
+				return array("type"=>"chapter", "param" => array("limit" => $length, "book" => $index));
 			}
-			else if (str_contains($callback_data, "ch"))
+			else if (str_contains($callback_data, "-"))
 			{
-				$index = (int) (str_replace($callback_data, "ch", ""));
+				$info = (explode("-", $callback_data));
+				return array("type"=>"verse", "param" => array("book" => $info[0], "chapter" => (int) $info[1]));
 
-
-				return array("type"=>"verse", "param" => $index);
 			}
 
 			return null;

@@ -1,6 +1,10 @@
 <?php
     namespace Utils;
 
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/request_db.php";
+
+    use Utils\Request;
+
     class Payloads
     {
         public static $greeting = "\xE1\x8A\xA5\xE1\x8A\x95\xE1\x8A\xB3\xE1\x8A\x95\x20\xE1\x89\xA0\xE1\x88\xB0\xE1\x88\x8B\xE1\x88\x9D\x20\xE1\x88\x98\xE1\x8C\xA1\x21" . "%0A%0A" .
@@ -161,7 +165,7 @@
             "\x20\xE1\x89\xBD\xE1\x8C\x8D\xE1\x88\xAE\xE1\x89\xBD\xE1\x8A\x95\x20\xE1\x8A\xA0\xE1\x88\xB5\xE1\x89\xB0\xE1\x8A\x93\xE1\x8C\x8D\xE1\x8B\xB7\xE1\x88\x8D\x21" . "%20" .
             "\xE1\x8A\xA5\xE1\x89\xA3\xE1\x8A\xA5\xE1\x8B\x8E\x20\x2F\x73\x74\x61\x72\x74\x20\xE1\x8B\xAD\xE1\x8A\x95\xE1\x8A\xA9\x21";
 
-        public static function chapter($limit)
+        public static function chapter($book, $limit)
         {
             $chapters = array();
             $row = array();
@@ -172,14 +176,14 @@
             {
                 if ($count != 4)
                 {
-                    $cell = array("text" => "\xE1\x88\x9D\xE1\x8B\x95\xE1\x88\xAB\xE1\x8D\x8D" . "%20" . $i, "callback_data" => "ch" . $i);
+                    $cell = array("text" => "\xE1\x88\x9D\xE1\x8B\x95\xE1\x88\xAB\xE1\x8D\x8D" . "%20" . $i, "callback_data" => $book . "-" . $i);
                     array_push($row, $cell);
                 }
                 else
                 {
                     array_push($chapters, $row);
                     $row = array();
-                    $cell = array("text" => "\xE1\x88\x9D\xE1\x8B\x95\xE1\x88\xAB\xE1\x8D\x8D" . "%20" . $i, "callback_data" => "ch" . $i);
+                    $cell = array("text" => "\xE1\x88\x9D\xE1\x8B\x95\xE1\x88\xAB\xE1\x8D\x8D" . "%20" . $i, "callback_data" => $book . "-" . $i);
                     array_push($row, $cell);
                     $count = 0;
                 }
@@ -193,9 +197,41 @@
             return $value;
         }
 
-        public static function verse($chapter_limit)
+        public static function verse($info)
         {
-            
+            $request = new Request();
+            $limit = $request->getVerseLimit($info);
+            $verses = array();
+            $row = array();
+            $cell = null;
+            $count = 0;
+
+            if (!isset($limit))
+                return;
+
+            for ($i = 1; $i <= $limit; $i++)
+            {
+                if ($count != 4)
+                {
+                    $cell = array("text" => "\xE1\x89\x81\xE1\x8C\xA5\xE1\x88\xAD" . "%20" . $i, "callback_data" => $info[0] . "-" . $info[1] . "-" . $i);
+                    array_push($row, $cell);
+                }
+                else
+                {
+                    array_push($verses, $row);
+                    $row = array();
+                    $cell = array("text" => "\xE1\x89\x81\xE1\x8C\xA5\xE1\x88\xAD" . "%20" . $i, "callback_data" => $info[0] . "-" . $info[1] . "-" . $i);
+                    array_push($row, $cell);
+                    $count = 0;
+                }
+                $count++;
+            }
+            array_push($verses, $row);
+            $row = array();
+            array_push($row, array("text" => "<<", "callback_data" => "bible_m"));
+            array_push($verses, $row);
+            $value = array('inline_keyboard' => $verses);
+            return $value;
         }
     }
 ?>
