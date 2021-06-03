@@ -82,7 +82,7 @@
 							"chat_id" => $chat_id,
 							"message_id" => $message_id,
 							"text" => "Test subject",
-							"reply_markup" => json_encode(Payloads::chapter($callBack["parame"]["book"], $callBack["param"]["limit"]))
+							"reply_markup" => json_encode(Payloads::chapter($callBack["param"]["book"], $callBack["param"]["limit"]))
 						];
 
 						$response->editMessage($parameter);
@@ -114,8 +114,7 @@
 			else if (str_contains($callback_data, "-"))
 			{
 				$info = (explode("-", $callback_data));
-				return array("type"=>"verse", "param" => array("book" => $info[0], "chapter" => (int) $info[1]));
-
+				return array("type"=>"verse", "param" => array("book" => BOOKS[$info[0]][0], "chapter" => $info[1]));
 			}
 
 			return null;

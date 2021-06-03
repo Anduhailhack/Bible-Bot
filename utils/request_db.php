@@ -10,7 +10,7 @@
         function getVerseLimit($info)
         {
             $curl = curl_init();
-            $data = ["method" => "getVerseLimit", "parameters" => ["book" => BOOKS[$info[0]][0], "chapter" => $info[1]]];
+            $data = ["method" => "getVerseLimit", "parameters" => ["book" => $info["book"], "chapter" => $info["chapter"]]];
             $data = json_encode($data);
 
             curl_setopt($curl, CURLOPT_URL, "http://baekabible.epizy.com/bible_api_1/route.php");
