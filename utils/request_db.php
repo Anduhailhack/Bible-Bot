@@ -42,5 +42,15 @@
                 }
             }
         }
+        
+        function getChapter()
+        {
+        	
+        }
+        
+        function getVerse()
+        {
+        	
+        }
     }
 ?>
