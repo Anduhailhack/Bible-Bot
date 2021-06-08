@@ -82,7 +82,7 @@
 							"chat_id" => $chat_id,
 							"message_id" => $message_id,
 							"text" => "Test subject",
-							"reply_markup" => json_encode(Payloads::chapter($callBack["parame"]["book"], $callBack["param"]["limit"]))
+							"reply_markup" => json_encode(Payloads::chapter($callBack["param"]["book"], $callBack["param"]["limit"]))
 						];
 
 						$response->editMessage($parameter);
@@ -95,7 +95,7 @@
 							"text" => "Test subject",
 							"reply_markup" => json_encode(Payloads::verse($callBack["param"]))
 						];
-						
+
 						$response->editMessage($parameter);
 					}
 					break;
@@ -108,7 +108,7 @@
 			{
 				$index = (int) (str_replace($callback_data, "bo", ""));
 				$length = (int)(BOOKS[$index][1]);
-
+				file_get_contents("https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/sendMessage?chat_id=686804748&text=".$length);
 				return array("type"=>"chapter", "param" => array("limit" => $length, "book" => $index));
 			}
 			else if (str_contains($callback_data, "-"))
