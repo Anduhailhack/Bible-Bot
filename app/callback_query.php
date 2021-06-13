@@ -82,8 +82,7 @@
 						"reply_markup" => json_encode(Payloads::backBtn())
 					];
 					
-					//$response->editMessage($parameter);
-					file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".json_encode(Payloads::backBtn()));
+					$response->editMessage($parameter);
 					break;
 				default:
 					$callBack = $this->identifyCallback($chat_id, $data);
@@ -95,7 +94,7 @@
 							"text" => "Test subject",
 							"reply_markup" => json_encode(Payloads::chapter($callBack["param"]["book"], $callBack["param"]["limit"]))
 						];
-
+						file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".json_encode(Payloads::chapter($callBack["param"]["book"], $callBack["param"]["limit"])));
 						$response->editMessage($parameter);
 					}
 					else if (is_array($callBack) && $callBack["type"] == "verse")
