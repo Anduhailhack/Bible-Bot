@@ -82,7 +82,8 @@
 						"reply_markup" => json_encode(Payloads::backBtn())
 					];
 					
-					$response->editMessage($parameter);
+					//$response->editMessage($parameter);
+					file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text="."About");
 					break;
 				default:
 					$callBack = $this->identifyCallback($chat_id, $data);
