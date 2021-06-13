@@ -74,6 +74,16 @@
 
 					$response->editMessage($parameter);
 					break;
+				case 'about_bot':
+					$parameter = [
+						"chat_id" => $chat_id,
+						"message_id" => $message_id,
+						"text" => Payloads::$about_bot,
+						"reply_markup" => json_encode(Payloads::backBtn())
+					];
+					
+					$response->editMessage($parameter);
+					break;
 				default:
 					$callBack = $this->identifyCallback($chat_id, $data);
 					if (is_array($callBack) && $callBack["type"] == "chapter")
