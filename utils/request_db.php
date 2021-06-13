@@ -9,6 +9,7 @@
     {
         function getVerseLimit($info)
         {
+        /*
             $curl = curl_init();
             $data = ["method" => "getVerseLimit", "parameters" => ["book" => $info["book"], "chapter" => $info["chapter"]]];
             $data = json_encode($data);
@@ -43,6 +44,19 @@
                 
                 return file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".$result);
             }
+            */
+            
+            $data = ["method" => "getVerseLimit", "parameters" => ["book" => $info["book"], "chapter" => $info["chapter"]]];
+            $data = http_build_query($data);
+            $opts = array('http' => array(
+        		'method' => 'POST',
+        		'header' => 'Content-type: application/x-www-form-urlencoded',
+        		'content' => $postdata
+    		));
+			$context = stream_context_create($opts);
+			$result = file_get_contents("http://baekabible.epizy.com/bible_api_1/route.php", false, $context);
+			
+			return file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".$result);
         }
         
         function getChapter()
