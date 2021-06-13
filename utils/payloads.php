@@ -169,7 +169,9 @@
 		public static function backBtn()
 		{
 			$row = array();
-			array_push($row, array("text" => "<<", "callback_data" => "back_mm"));
+			$cell = array();
+			array_push($cell, array("text" => "<<", "callback_data" => "back_mm"));
+			array_push($row, $cell);
 			$value = array('inline_keyboard' => $row);
             return $value;
 		}
