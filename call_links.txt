@@ -1,4 +1,4 @@
-https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/setWebhook?url=https://66b082153c8c.ngrok.io/home_addr/bible_bot/Bible-Bot/
+https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/setWebhook?url=https://66b082153c8c.ngrok.io/home_addr/bible_bot/Bible-Bot/index.php
 
 https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/deleteWebhook
 
