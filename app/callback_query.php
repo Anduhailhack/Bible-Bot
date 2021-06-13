@@ -106,16 +106,15 @@
 		{
 			if (str_contains($callback_data, "bo"))
 			{
-				$index = (int) (str_replace($callback_data, "bo", ""));
+				$index = (int) (str_replace("bo", "", $callback_data));
 				$length = (int)(BOOKS[$index][1]);
-				file_get_contents("https://api.telegram.org/bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ/sendMessage?chat_id=686804748&text=".$length);
+				
 				return array("type"=>"chapter", "param" => array("limit" => $length, "book" => $index));
 			}
 			else if (str_contains($callback_data, "-"))
 			{
-				$info = (explode("-", $callback_data));
+				$info = (explode("-", $callback_data));	
 				return array("type"=>"verse", "param" => array("book" => $info[0], "chapter" => (int) $info[1]));
-
 			}
 
 			return null;

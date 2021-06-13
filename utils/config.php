@@ -8,7 +8,7 @@
     define("DB_PORT", 3306);
 
     define("API_URL", "https://api.telegram.org/");
-    define("API_TOKEN", "bot1740911451:AAFb093KmaiexLI6t4VjqSGJlDEp-UHZwDQ");
+    define("API_TOKEN", "bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ");
 
     define("METHODS", array("sendMessage?",
                 "editMessageReplyMarkup?",
