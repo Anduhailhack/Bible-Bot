@@ -78,7 +78,7 @@
 					$parameter = [
 						"chat_id" => $chat_id,
 						"message_id" => $message_id,
-						"text" => Payloads::$about_bot,
+						"text" => Payloads::$greeting,
 						"reply_markup" => json_encode(Payloads::backBtn())
 					];
 					
