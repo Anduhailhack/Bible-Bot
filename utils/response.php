@@ -1,8 +1,8 @@
 <?php
     namespace Utils;
 
-    include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/config.php";
-    include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/payloads.php";
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/utils/config.php";
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/utils/payloads.php";
 
     use Utils\Payloads;
 

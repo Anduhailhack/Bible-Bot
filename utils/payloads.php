@@ -1,7 +1,7 @@
 <?php
     namespace Utils;
 
-    include_once $_SERVER["DOCUMENT_ROOT"] . "/home_addr/bible_bot/Bible-Bot/utils/request_db.php";
+    include_once $_SERVER["DOCUMENT_ROOT"] . "/utils/request_db.php";
 
     use Utils\Request;
 
