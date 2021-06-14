@@ -2,9 +2,9 @@
     namespace Utils;
 
     define("DB_NAME", "SERVICES");
-    define("DB_USER", "root");
-    define("DB_HOST", "localhost");
-    define("DB_PASS", "");
+    define("DB_USER", "epiz_28453588");
+    define("DB_HOST", "sql103.epizy.com");
+    define("DB_PASS", "zALws3hFxHMpNM3");
     define("DB_PORT", 3306);
 
     define("API_URL", "https://api.telegram.org/");
