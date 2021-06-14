@@ -51,7 +51,7 @@
             $opts = array('http' => array(
         		'method' => 'POST',
         		'header' => 'Content-type: application/x-www-form-urlencoded',
-        		'content' => $postdata
+        		'content' => $data
     		));
 			$context = stream_context_create($opts);
 			$result = file_get_contents("http://baekabible.epizy.com/bible_api_1/route.php", false, $context);
