@@ -1,7 +1,7 @@
 <?php
     namespace Utils;
 
-    define("DB_NAME", "SERVICES");
+    define("DB_NAME", "epiz_28453588_SERVICES");
     define("DB_USER", "epiz_28453588");
     define("DB_HOST", "sql103.epizy.com");
     define("DB_PASS", "zALws3hFxHMpNM3");
