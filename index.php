@@ -42,7 +42,7 @@
 	$route = new Route();
 	$app = $route->route();
 	if ($app != NULL)
-		$app->init();
+		//$app->init();
 	// echo "Hello world";
 
 
