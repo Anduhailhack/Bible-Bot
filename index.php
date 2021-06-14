@@ -1,8 +1,6 @@
 <?php
 	namespace Route;
 	
-	include_once "globals.php";
-
 	include_once $_SERVER["DOCUMENT_ROOT"].	"/app/callback_query.php";
 	// include_once $_SERVER["DOCUMENT_ROOT"].	"/app/inline_query.php";
 	include_once $_SERVER["DOCUMENT_ROOT"].	"/app/message.php";
